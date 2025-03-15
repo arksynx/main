@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>cryptopter | Airdrop</title>
+    <meta charset="utf-8">
+    <meta name="Keywords" content="cryptopter | cryptopter, cryptopter.com ">
+    <meta name="Description"
+        content="cryptopter | Cryptopter is advanced cryptocurrency exchange to buy and sell Bitcoin, Ethereum, Litecoin, Monero, ZCash, DigitalNote,">
+    <meta name="author" content="static">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="copyright" content="cryptopter">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="images/favicon.png" rel="icon" type="image/x-icon">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/epsilon-style.css" rel="stylesheet">
+
+    <link href="css/custom.css" rel="stylesheet">
+
+    <link href="css/common.css" rel="stylesheet">
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookies.2.2.0.js"></script>
+    <script type="text/javascript" src="./js/layer.js"></script>
+    <script src="js/modernizr.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="./css/custom_.css">
+</head>
+
+<body id="dark" class="easy-body airdrop">
+    <!-- Header Start -->
+    <header class="dark-bb">
+
+        <link rel="stylesheet" href="css/icon-park.css">
+        <style>
+            .banner-section {
+                height: 514px !important;
+            }
+
+            .nav__item a {
+                text-decoration: none;
+                cursor: pointer;
+                color: white !important;
+            }
+
+            .m-logo {
+                display: none;
+            }
+
+            .nav-mobile {
+                display: none !important;
+                z-index: 10;
+                position: absolute;
+                top: 48px;
+                overflow-y: auto;
+                width: 248px;
+                height: calc(100% - 48px);
+                background-color: #000;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+                /* display: none !important; */
+            }
+
+            .nav__overview {
+                border-bottom: 1px solid #ccc;
+                background-color: #fafafa;
+                font-size: 14px;
+                color: #0288d1;
+                height: 54px;
+                padding: 20px 25px;
+                margin-bottom: 12px;
+            }
+
+            .nav__overview i {
+                display: flex;
+                justify-content: center;
+                width: 15px;
+                margin-right: 20px;
+            }
+
+            .nav__label {
+                font-weight: 300;
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-size: 12px;
+                color: #b5b5b5;
+                padding: 15px 24px;
+            }
+
+            .nav__item {
+                font-weight: 400;
+                display: block;
+                font-size: 14px;
+                color: #757575;
+                padding: 11px 25px;
+                display: flex;
+                align-items: center;
+            }
+
+            .nav__item.overview {
+                color: #fff;
+                border-bottom: 1px solid #e4e4e4;
+                background-color: #e0a800;
+                height: 54px;
+                margin-bottom: 12px;
+            }
+
+            .nav__item:hover {
+                background-color: #e0a800;
+                cursor: pointer;
+            }
+
+            .nav__item i {
+                display: flex;
+                justify-content: center;
+                width: 15px;
+                margin-right: 20px;
+            }
+
+            .main {
+                position: absolute;
+                left: 248px;
+                width: calc(100% - 248px);
+                height: calc(100% - 48px);
+            }
+
+            .main .title-bar {
+                background-color: #039be5;
+                height: 54px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            .main .title-bar h2 {
+                font-size: 20px;
+                font-weight: 300;
+                margin-left: 24px;
+            }
+
+            .main .content-area {
+                position: relative;
+                height: calc(100% - 54px);
+                color: #999;
+                display: flex;
+                justify-content: center;
+            }
+
+            .main .content-area p {
+                align-self: center;
+            }
+
+            .nav__toggle {
+                display: none !important;
+            }
+
+            @media only screen and (max-width: 991px) {
+                .nav__toggle {
+                    display: block !important;
+                }
+
+                .m-logo {
+                    height: 48px;
+                    display: flex;
+                    align-items: center;
+                    padding: 0px 10px;
+                    border-bottom: 1px solid #e4e4e4;
+                }
+
+                .m-logo .logo__icon {
+                    display: inline-block;
+                    height: 28px;
+                    margin: 10px;
+                }
+
+                .m-logo .logo__text {
+                    display: inline-block;
+                    height: 18px;
+                    opacity: 0.6;
+                }
+
+                .mobile-mask.show {
+                    display: block;
+                    z-index: 25;
+                    background: #000;
+                    opacity: 0.5;
+                    top: 0;
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    cursor: pointer;
+                }
+
+                .nav-mobile {
+                    display: none;
+                }
+
+                .nav-mobile.show {
+                    display: block !important;
+                    z-index: 30;
+                    position: fixed;
+                    top: 0px;
+                    overflow-y: auto;
+                    width: 248px;
+                    height: 100%;
+                    background-color: #000;
+                    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                        0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+                    right: 0;
+                }
+
+                .nav-mobile.show__overview {
+                    border-bottom: 1px solid #e4e4e4;
+                    background-color: #fafafa;
+                    font-size: 14px;
+                    color: #0288d1;
+                    height: 52px;
+                    padding: 20px 25px;
+                    margin-bottom: 12px;
+                }
+
+                .nav-mobile.show__overview i {
+                    display: flex;
+                    justify-content: center;
+                    width: 15px;
+                    margin-right: 20px;
+                }
+
+                .nav-mobile.show__label {
+                    font-weight: 300;
+                    display: block;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    font-size: 12px;
+                    color: #b5b5b5;
+                    padding: 15px 24px;
+                }
+
+                .nav-mobile.show__item {
+                    font-weight: 400;
+                    display: block;
+                    font-size: 14px;
+                    color: #757575;
+                    padding: 11px 25px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .nav-mobile.show__item.overview {
+                    color: #0288d1;
+                    border-bottom: 1px solid #ccc;
+                    background-color: #fafafa;
+                    height: 54px;
+                    margin-bottom: 12px;
+                }
+
+                .nav-mobile.show__item:hover {
+                    background-color: red;
+                    cursor: pointer;
+                }
+
+                .nav-mobile.show__item i {
+                    display: flex;
+                    justify-content: center;
+                    width: 15px;
+                    margin-right: 20px;
+                }
+
+                .main {
+                    position: absolute;
+                    left: 0px;
+                    width: 100%;
+                }
+
+                .main .title-bar {
+                    background-color: #039be5;
+                    height: 54px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .main .title-bar h2 {
+                    font-size: 20px;
+                    font-weight: 300;
+                    margin-left: 24px;
+                }
+            }
+
+            .nav-mobile .wallet_mob_dropdown.dropdown-menu.show,
+            .nav-mobile .dropdown-menu.show {
+                width: 100%;
+                top: 40px !important;
+            }
+
+            .nav-mobile .dropdown-menu.show .dropdown-body {
+                border: 1px solid;
+                border-radius: 9px;
+            }
+
+            .WalletNav,
+            .nav__item {
+                position: relative;
+            }
+
+            .mob_dark_mode {
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 1;
+                cursor: pointer;
+            }
+
+            span.mob_dark_mode a i {
+                font-size: 20px;
+            }
+
+            .pl0 {
+                padding-left: 0;
+            }
+
+            .logout_a {
+                padding: 6px 0;
+            }
+        </style>
+
+
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="/"><img alt="cryptopter" src="images/65d5f5101e8de.png"></a>
+            <!-- navbar-toggler  -->
+            <!-- aria-controls="headerNavMenu"
+  aria-expanded="false"
+  aria-label="Toggle Menu"
+  data-target="#headerNavMenu"
+    data-toggle="collapse"
+    type="button" -->
+            <button class="nav__toggle fa fa-bars fa-1x p-5 border bg-dark text-warning f-s-24 rounded">
+                <!-- <i class="icon ion-md-menu"></i> -->
+            </button>
+            <div class="collapse navbar-collapse" id="headerNavMenu">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown icon-flex-wrapper ml-3" id="Trade_box">
+                        <div class="nav-noicon"></div> <a aria-expanded="false" aria-haspopup="true"
+                            class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Trade </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-body">
+                                <a class="dropdown-item" href="/Trade/tradepro">
+                                    <div class="nav-icon">
+                                        <i class="icon-size exchange-three"></i>
+                                    </div>
+
+                                    <div class="content text-white">Spot Professional <p class="featured">Hot</p> <span
+                                            class="subtext">Tools for Pro</span> </div>
+                                </a><a class="dropdown-item" href="/Trade">
+                                    <div class="nav-icon">
+                                        <i class="icon-size send-to-back"></i>
+                                    </div>
+
+                                    <div class="content text-white">Spot Classic <span class="subtext">Trade on our
+                                            award-winning platform</span> </div>
+                                </a><a class="dropdown-item" href="/Easy">
+                                    <div class="nav-icon">
+                                        <i class="icon-size exchange"></i>
+                                    </div>
+
+                                    <div class="content text-white">Easy Convert <p class="featured">New</p> <span
+                                            class="subtext">Easy Trade</span> </div>
+                                </a> </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown icon-flex-wrapper ml-3" id="Earn_box">
+                        <div class="nav-noicon"></div> <a aria-expanded="false" aria-haspopup="true"
+                            class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Earn <span
+                                class="featured">Hot</span></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-body">
+                                <a class="dropdown-item" href="/Invest">
+                                    <div class="nav-icon">
+                                        <i class="icon-size broadcast-one"></i>
+                                    </div>
+
+                                    <div class="content text-white">Staking <span class="subtext">Stake and Get
+                                            Rewards</span> </div>
+                                </a><a class="dropdown-item" href="/Airdrop">
+                                    <div class="nav-icon">
+                                        <i class="icon-size parachute"></i>
+                                    </div>
+
+                                    <div class="content text-white">Airdrop <span class="subtext">Earn Tokens</span>
+                                    </div>
+                                </a><a class="dropdown-item" href="/Faucet">
+                                    <div class="nav-icon">
+                                        <i class="icon-size water"></i>
+                                    </div>
+
+                                    <div class="content text-white">Faucet <p class="featured">Grab</p> <span
+                                            class="subtext">Free Coins and Tokens</span> </div>
+                                </a> </div>
+                        </div>
+                    </li>
+                    <li id="Market_box" class="nav-item ml-3">
+                        <a href="/Content/market" class="nav-link icon-flex-wrapper">
+
+                            <div class="nav-noicon"></div> Market
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown icon-flex-wrapper ml-3" id=" _box">
+                        <div class="nav-icon">
+                            <i class="icon-size system"></i>
+                        </div>
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                            data-toggle="dropdown" href="#" role="button"> </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-body">
+                                <a class="dropdown-item" href="/Pool">
+                                    <div class="nav-icon">
+                                        <i class="icon-size heavy-metal"></i>
+                                    </div>
+
+                                    <div class="content text-white">Mining <p class="featured">Mine to Earn</p> <span
+                                            class="subtext">Rent mining machines</span> </div>
+                                </a><a class="dropdown-item" href="/Issue">
+                                    <div class="nav-icon">
+                                        <i class="icon-size flask"></i>
+                                    </div>
+
+                                    <div class="content text-white">Lab <p class="featured">Innovate</p> <span
+                                            class="subtext">Blockchain Research and Investments</span> </div>
+                                </a> </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item header-custom-icon ml-3">
+                        <a class="nav-link" href="#" id="clickFullscreen">
+                            <i class="icon ion-md-expand"></i>
+                        </a>
+                    </li>
+
+                    <!--li class="nav-item dropdown header-custom-icon ml-3">
+        <a
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="nav-link dropdown-toggle"
+          data-toggle="dropdown"
+          href="#"
+          role="button"
+        >
+          <i class="icon ion-md-download"></i
+        ></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-body">
+            <img src="/images/coins/public/5a2557a174748.png" class="img-fluid" />
+          </div>
+          <div
+            class="dropdown-footer d-flex align-items-center justify-content-center f-s-12 text-center"
+          >
+            Scan to Download iOS and Android App
+          </div>
+        </div>
+      </li-->
+
+                    <li class="nav-item header-custom-icon login-menu ml-3">
+                        <a class="cd-signin nav-link" href="/login/login">
+                            <i class="icon ion-ios-log-in"></i> Sign In</a>
+                    </li>
+                    <li class="nav-item header-custom-icon login-menu ml-3">
+                        <a class="cd-signup nav-link" href="/login/register">
+                            <i class="icon ion-ios-person-add"></i> Sign Up</a>
+                    </li>
+                    <li class="nav-item dropdown header-custom-icon langMenu ml-3">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <div id="langselection">
+                                <img src="images/en.png" class="position-left" alt="">
+                                <span class="cret-after-nav-item"></span>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-body">
+                                <span class="dropdown-item" onclick="choose_lang('en')"> English</span>
+                                <span class="dropdown-item" onclick="choose_lang('tr')"> Turkish</span>
+                                <span class="dropdown-item" onclick="choose_lang('es')"> Spanish</span>
+                                <span class="dropdown-item" onclick="choose_lang('nl')"> Dutch</span>
+                                <span class="dropdown-item" onclick="choose_lang('il')"> Hebrew</span>
+                                <span class="dropdown-item" onclick="choose_lang('de')"> German</span>
+                                <span class="dropdown-item" onclick="choose_lang('ko')"> Korean</span>
+                                <span class="dropdown-item" onclick="choose_lang('ja')"> Japanese</span>
+                                <span class="dropdown-item" onclick="choose_lang('pt')"> Portuguese</span>
+                                <span class="dropdown-item" onclick="choose_lang('ru')"> �&nbsp;усски</span>
+                                <span class="dropdown-item" onclick="choose_lang('vi')"> Vietnamese</span>
+                                <span class="dropdown-item" onclick="choose_lang('zhtw')"> Traditional</span>
+                                <span class="dropdown-item" onclick="choose_lang('zhcn')"> Traditional</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item header-custom-icon ml-3">
+                        <a class="nav-icon changeThemeLight bg-transparent" href="#!">
+                            <i class="icon-size moon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="mobile-mask"></div>
+        <div class="nav-mobile pt-2">
+            <span class="mob_dark_mode">
+                <a class="nav-icon changeThemeLight bg-transparent" href="#!">
+                    <i class="icon-size moon"></i>
+                </a>
+            </span>
+            <div class="">
+                <div class="nav__item">
+                    <i class="fa fa-language" aria-hidden="true"></i>
+                    <a class="nav-link dropdown-toggle pl0" aria-expanded="false" aria-haspopup="true"
+                        data-toggle="dropdown" href="#" role="button">
+                        English
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-body">
+                            <a class="dropdown-item" href="#">English</a>
+                            <a class="dropdown-item" href="#">Turkish</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-around align-items-center w-100">
+                    <div class="nav__item">
+                        <a class="btn btn-outline-warning btn-sm text-dark" href="/Login/login">Sign In</a>
+                    </div>
+                    <div class="nav__item">
+                        <a class="btn btn-outline-warning btn-sm text-dark" href="/Login/register">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav__item overview">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <a href="/">Home</a>
+            </div>
+            <div class="nav__item">
+                <!--label class="nav__label lbl_dropdown">Trade</label-->
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                    href="#" role="button">Trade</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-body">
+                        <a class="dropdown-item" href="Trade/tradepro">
+                            <div class="icon">
+                                <i class="fa fa-" aria-hidden="true"></i>
+                            </div>
+                            <div class="content">
+                                Spot Professional </div>
+                        </a>
+                        <!--div class="nav__item">
+              <i class="fa fa-" aria-hidden="true"></i>
+                              <a href="Trade/tradepro">
+                            Spot Professional</a>
+            </div--> <a class="dropdown-item" href="/Trade">
+                            <div class="icon">
+                                <i class="fa fa-" aria-hidden="true"></i>
+                            </div>
+                            <div class="content">
+                                Spot Classic </div>
+                        </a>
+                        <!--div class="nav__item">
+              <i class="fa fa-" aria-hidden="true"></i>
+                                              <a href="/Trade">              Spot Classic</a>
+            </div--> <a class="dropdown-item" href="/Easy">
+                            <div class="icon">
+                                <i class="fa fa-" aria-hidden="true"></i>
+                            </div>
+                            <div class="content">
+                                Easy Convert </div>
+                        </a>
+                        <!--div class="nav__item">
+              <i class="fa fa-" aria-hidden="true"></i>
+                                              <a href="/Easy">              Easy Convert</a>
+            </div-->
+                    </div>
+                </div>
+            </div>
+            <div class="nav__item">
+                <!--label class="nav__label lbl_dropdown">Earn</label-->
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                    href="#" role="button">Earn</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-body">
+                        <a class="dropdown-item" href="/Invest">
+                            <div class="icon">
+                                <i class="fa fa-" aria-hidden="true"></i>
+                            </div>
+                            <div class="content">
+                                Staking </div>
+                        </a>
+                        <!--div class="nav__item">
+              <i class="fa fa-" aria-hidden="true"></i>
+                                              <a href="/Invest">              Staking</a>
+            </div--> <a class="dropdown-item" href="/Airdrop">
+                            <div class="icon">
+                                <i class="fa fa-parachute" aria-hidden="true"></i>
+                            </div>
+                            <div class="content">
+                                Airdrop </div>
+                        </a>
+                        <!--div class="nav__item">
+              <i class="fa fa-parachute" aria-hidden="true"></i>
+                                              <a href="/Airdrop">              Airdrop</a>
+            </div--> <a class="dropdown-item" href="/Faucet">
+                            <div class="icon">
+                                <i class="fa fa-" aria-hidden="true"></i>
+                            </div>
+                            <div class="content">
+                                Faucet </div>
+                        </a>
+                        <!--div class="nav__item">
+              <i class="fa fa-" aria-hidden="true"></i>
+                                              <a href="/Faucet">              Faucet</a>
+            </div-->
+                    </div>
+                </div>
+            </div>
+            <div class="nav__item">
+                <div class="nav__item elseifnav">
+                    <a href="/Content/market">Market</a>
+                </div>
+            </div>
+            <div class="nav__item">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                    href="#" role="button">More</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-body">
+                        <a class="dropdown-item" href="/Pool">
+                            <div class="icon">
+                                <i class="fa fa-" aria-hidden="true"></i>
+                            </div>
+                            <div class="content">
+                                Mining </div>
+                        </a>
+                        <!--div class="nav__item">
+              <i class="fa fa-" aria-hidden="true"></i>
+                                              <a href="/Pool">              Mining</a>
+            </div--> <a class="dropdown-item" href="/Issue">
+                            <div class="icon">
+                                <i class="fa fa-" aria-hidden="true"></i>
+                            </div>
+                            <div class="content">
+                                Lab </div>
+                        </a>
+                        <!--div class="nav__item">
+              <i class="fa fa-" aria-hidden="true"></i>
+                                              <a href="/Issue">              Lab</a>
+            </div-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            //display flyout mobile-menu
+            $(".nav__toggle").on("click", function () {
+                $(".nav-mobile, .mobile-mask").toggleClass("show");
+            });
+
+            $(".mobile-mask").on("click", function () {
+                $(".nav-mobile, .mobile-mask").removeClass("show");
+            });
+        </script>
+
+    </header>
+    <!-- Header ends -->
+
+
+    <main class="wrapper grey-bg airdrop-page">
+        <div class="page-top-banner">
+            <div class="filter" style="
+        background-image: url('/images/filter2-min.png');
+      ">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-md-8 col-lg-7 col-xl-7">
+                            <h1>Gift Rain</h1>
+                            <h2>
+                            </h2>
+                        </div>
+                        <div class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-5">
+                            <img src="/images/airdrop-banner.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Airdrop Start -->
+        <section class="page-inner">
+            <div class="container">
+                <div class="row m-t-30 m-b-40 justify-content-center">
+                    <div class="col-xl-11">
+                        <div class="card">
+                            <div class="card-body">
+                                <div
+                                    class="airdrop-single-item airdrop-item arrow-black slick-initialized slick-slider slick-dotted">
+                                    <div class="slick-list draggable">
+                                        <div class="slick-track"
+                                            style="opacity: 1; width: 739px; transform: translate3d(0px, 0px, 0px);">
+                                            <div class="slick-slide slick-current slick-active" data-slick-index="0"
+                                                aria-hidden="false" style="width: 739px;" tabindex="0" role="tabpanel"
+                                                id="slick-slide00" aria-describedby="slick-slide-control00">
+                                                <div class="row align-items-center">
+                                                    <div class="col-lg-6">
+                                                        <img src="/images/5d76391fc2178.jpg" alt="" srcset="">
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <h3 class="title">Hold EOS Get Doge</h3>
+                                                        <ul>
+                                                            <li>
+                                                                <b>Hold - </b> EOS </li>
+                                                            <li>
+                                                                <b>Airdrop - </b> 100000 DOGE </li>
+                                                            <b>Start Time </b> 2019-10-10 00:00:00
+                                                            <li>
+                                                                <b>End Time </b> 2019-10-11 23:59:59 </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="slick-dots" role="tablist">
+                                        <li class="slick-active" role="presentation"><button type="button" role="tab"
+                                                id="slick-slide-control00" aria-controls="slick-slide00"
+                                                aria-label="1 of 1" tabindex="0" aria-selected="true">1</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-11 m-t-30 airdrop-list">
+                        <div class="card">
+                            <div class="card-header">
+                                <ul class="nav nav-pills" role="tablist">
+                                    <li class="nav-item">
+                                        <a aria-selected="false" class="nav-link" data-toggle="pill" href="#processing"
+                                            role="tab">Processing</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a aria-selected="true" class="nav-link" data-toggle="pill" href="#upcoming"
+                                            role="tab">Upcoming</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a aria-selected="true" class="nav-link active" data-toggle="pill" href="#ended"
+                                            role="tab">Ended</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade" id="processing" role="tabpanel">
+                                        <div class="row">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade show" id="upcoming" role="tabpanel">
+                                        <div class="row">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade show active" id="ended" role="tabpanel">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-4 col-lg-4">
+
+                                                <div class="thumb" style="min-height: 200px">
+                                                    <img src="/images/5d3e9a704ce78.png" class="img-fluid"
+                                                        style="width: 120px; height: 120px;">
+                                                </div>
+                                                <div class="caption">
+                                                    <h6 class="title">Waves airdrop</h6>
+                                                    <ul>
+                                                        <li>Holding:<span>Waves</span></li>
+                                                        <li>Airdrop:<span>10000 Dogecoin </span></li>
+                                                        <li>Start Date:<span>2023-02-12 12:46:06</span></li>
+                                                        <li>End Date:<span>2024-02-14 12:46:19</span></li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-4 col-lg-4">
+
+                                                <div class="thumb" style="min-height: 200px">
+                                                    <img src="/images/63eb35e3aaac1.png" class="img-fluid"
+                                                        style="width: 120px; height: 120px;">
+                                                </div>
+                                                <div class="caption">
+                                                    <h6 class="title">Satoshi Airdrops</h6>
+                                                    <ul>
+                                                        <li>Holding:<span>Bitcoin</span></li>
+                                                        <li>Airdrop:<span>2 Bitcoin </span></li>
+                                                        <li>Start Date:<span>2022-02-09 00:00:00</span></li>
+                                                        <li>End Date:<span>2024-02-09 00:00:00</span></li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-4 col-lg-4">
+
+                                                <div class="thumb" style="min-height: 200px">
+                                                    <img src="/images/5d76391fc2178.jpg" class="img-fluid"
+                                                        style="width: 120px; height: 120px;">
+                                                </div>
+                                                <div class="caption">
+                                                    <h6 class="title">Hold EOS Get Doge</h6>
+                                                    <ul>
+                                                        <li>Holding:<span>EOS</span></li>
+                                                        <li>Airdrop:<span>100000 Dogecoin </span></li>
+                                                        <li>Start Date:<span>2019-10-10 00:00:00</span></li>
+                                                        <li>End Date:<span>2019-10-11 23:59:59</span></li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Aidrop End -->
+    </main>
+
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-blocks">
+                        <div class="block">
+                            <img src="images/65d5f518818ac.png" alt="cryptopter" class="img-fluid m-b-15" width="152px">
+                            <h4>Cryptopter is advanced cryptocurrency exchange to buy and sell Bitcoin, Ethereum,
+                                Litecoin, Monero, ZCash, DigitalNote,</h4>
+                        </div>
+                        <div class="block">
+                            <h3>Trade</h3>
+
+                            <ul>
+                                <li>
+                                    <a class="slash" href="/Trade"> Spot </a>
+                                </li>
+                                <li>
+                                    <a class="noslash" href="/Easy">
+                                        Easy Convert </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block">
+                            <h3>Earn</h3>
+
+                            <ul>
+                                <li>
+                                    <a class="noslash" href="/Invest">
+                                        Staking </a>
+                                </li>
+                                <li>
+                                    <a class="noslash" href="/Airdrop">
+                                        Airdrop </a>
+                                </li>
+                                <li>
+                                    <a class="noslash" href="/Faucet">
+                                        Faucet </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block">
+                            <h3>Platform</h3>
+
+                            <ul>
+                                <li>
+                                    <a class="noslash" href="/about">
+                                        About Us </a>
+                                </li>
+                                <li>
+                                    <a class="noslash" href="/Dex">
+                                        Decentralized </a>
+                                </li>
+                                <li>
+                                    <a class="noslash" href="/Content/market">
+                                        Market </a>
+                                </li>
+                                <li>
+                                    <a class="noslash" href="/Pool">
+                                        Mining </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block">
+                            <h3>Terms</h3>
+
+                            <ul>
+                                <li>
+                                    <a class="noslash" href="/Article/detail/id/1">
+                                        User Agreement </a>
+                                </li>
+                                <li>
+                                    <a class="noslash" href="/Article/detail/id/2">
+                                        Staking Terms </a>
+                                </li>
+                                <li>
+                                    <a class="noslash" href="/Article/detail/id/3">
+                                        Privacy Policy </a>
+                                </li>
+                                <li>
+                                    <a class="noslash" href="/Article/detail/id/4">
+                                        Cookie Policy </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block">
+                            <!--h3>Community</h3-->
+                            <h3>Contact</h3>
+                            <ul>
+                                <li>
+                                    <a href="mailto:support@cryptopter.com"
+                                        style="white-space: nowrap; margin-bottom: 5px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                            <path fill="#fff"
+                                                d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z">
+                                            </path>
+                                        </svg>
+                                        support@cryptopter.com </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:info@cryptopter.com"
+                                        style="white-space: nowrap; margin-bottom: 5px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                            <path fill="#fff"
+                                                d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z">
+                                            </path>
+                                        </svg>
+                                        info@cryptopter.com </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row f-s-12 m-t-30">
+                <div class="col-12 m-b-15">
+                    <div class="col-12 col-sm-4 copyright">
+                        Copyright 2024 Cryptocurrency Exchange Software </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </footer>
+    <!-- Footer End -->
+
+    <section>
+        <div class="panel-group pt-3 pb-3" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading20">
+                    <p class="panel-title" style="margin: 0;">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-20"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Trade </a>
+                    </p>
+                </div>
+                <div id="collapse-20" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading20">
+                    <ul class="link-wrapper">
+                        <li>
+                            <a href="/Trade">
+                                Spot </a>
+                        </li>
+                        <li>
+                            <a href="/Easy">
+                                Easy Convert </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul>
+                </ul>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading31">
+                    <p class="panel-title" style="margin: 0;">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-31"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Earn </a>
+                    </p>
+                </div>
+                <div id="collapse-31" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading31">
+                    <ul class="link-wrapper">
+                        <li>
+                            <a href="/Invest">
+                                Staking </a>
+                        </li>
+                        <li>
+                            <a href="/Airdrop">
+                                Airdrop </a>
+                        </li>
+                        <li>
+                            <a href="/Faucet">
+                                Faucet </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul>
+                </ul>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading24">
+                    <p class="panel-title" style="margin: 0;">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-24"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Platform </a>
+                    </p>
+                </div>
+                <div id="collapse-24" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading24">
+                    <ul class="link-wrapper">
+                        <li>
+                            <a href="/about">
+                                About Us </a>
+                        </li>
+                        <li>
+                            <a href="/Dex">
+                                Decentralized </a>
+                        </li>
+                        <li>
+                            <a href="/Content/market">
+                                Market </a>
+                        </li>
+                        <li>
+                            <a href="/Pool">
+                                Mining </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul>
+                </ul>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading32">
+                    <p class="panel-title" style="margin: 0;">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-32"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Terms </a>
+                    </p>
+                </div>
+                <div id="collapse-32" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading32">
+                    <ul class="link-wrapper">
+                        <li>
+                            <a href="/Article/detail/id/1">
+                                User Agreement </a>
+                        </li>
+                        <li>
+                            <a href="/Article/detail/id/2">
+                                Staking Terms </a>
+                        </li>
+                        <li>
+                            <a href="/Article/detail/id/3">
+                                Privacy Policy </a>
+                        </li>
+                        <li>
+                            <a href="/Article/detail/id/4">
+                                Cookie Policy </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul>
+                </ul>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFive">
+                    <p class="panel-title" style="margin: 0;">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                            href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Community </a>
+                    </p>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <ul class="link-wrapper">
+                        <li>
+                            <a href="mailto:support@cryptopter.com" style="white-space: nowrap; margin-bottom: 5px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                    <path fill="#fff"
+                                        d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z">
+                                    </path>
+                                </svg>
+                                support@cryptopter.com </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@cryptopter.com" style="white-space: nowrap; margin-bottom: 5px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                    <path fill="#fff"
+                                        d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z">
+                                    </path>
+                                </svg>
+                                info@cryptopter.com </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group">
+            <ul class="footerul link-wrapper d-flex justify-content-center w-100 align-items-center">
+                <li class="text-white">Copyright 2024 Cryptocurrency Exchange Software</li>
+                <li class="ml-2 text-white">All rights reserved.</li>
+            </ul>
+
+        </div>
+    </section>
+
+
+    <style>
+        .panel-group ul.link-wrapper li a {
+            color: rgba(197, 197, 197, 1);
+        }
+
+        @media(max-width: 425px) {
+            .footerul {
+                display: block !important;
+                text-align: center;
+                font-size: 12px;
+                padding: 4px 8px 8px 8px !important;
+            }
+
+            .footerul li:last-child {
+                margin: 0 !important;
+            }
+
+            #accordion.panel-group ul li {
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+    <style>
+        @media only screen and (max-width: 991px) {
+            footer {
+                display: none;
+            }
+
+            .panel-group {
+                display: block !important;
+            }
+        }
+
+        .panel-group {
+            display: none;
+            background-color: var(--box-bg-dark)
+        }
+
+        .link-wrapper {
+            background-color: var(--box-bg-dark) color: gray;
+            padding: 20px;
+        }
+
+        .link-wrapper ul li a {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .panel-default>.panel-heading {
+
+            color: #333;
+            background-color: var(--box-bg-dark);
+            /* border-color: #e4e5e7; */
+            padding: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+        }
+
+        .panel-default>.panel-heading a {
+            display: block;
+            padding: 10px 15px;
+            color: white;
+        }
+
+        .panel-default>.panel-heading a:after {
+            content: "";
+            position: relative;
+            top: 1px;
+            display: inline-block;
+            font-family: 'Glyphicons Halflings';
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            float: right;
+            transition: transform .25s linear;
+            -webkit-transition: -webkit-transform .25s linear;
+        }
+
+        .panel-default>.panel-heading a[aria-expanded="true"] {
+            color: white;
+        }
+
+        .panel-default>.panel-heading a[aria-expanded="true"]:after {
+            content: "\2212";
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .panel-default>.panel-heading a[aria-expanded="false"]:after {
+            content: "\002b";
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+    </style>
+
+    <script>
+        function choose_lang(lang) {
+            $.cookies.set("lang", lang);
+            window.location.reload();
+        }
+    </script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-selec.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.tr.min.js"></script>
+    <script src="js/amcharts-core.min.js"></script>
+    <script src="js/amcharts.min.js"></script>
+    <script src="js/apexcharts.min.js"></script>
+
+
+    <script src="js/icheck.min.js"></script>
+    <script src="js/js.cookie.min.js"></script>
+    <script src="js/ion.rangeSlider.min.js"></script>
+    <script src="js/utils.js"></script>
+
+
+    <script src="./js/custom-script.js"></script>
+
+    <script>
+
+    </script>
+    <!-- Scripts End -->
+
+
+    </script>
+</body><!-- Home Slider Start -->
+
+</html>
