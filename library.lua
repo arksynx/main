@@ -1,355 +1,324 @@
--- // shitlib ... xz#1111 no need for credits jst dont claim its yours :sob:
+-- // ALLOSTRA UI Library - Mobile & PC Supported
 local Library = {}
 
 local Player = game:GetService("Players").LocalPlayer
-local TS, UIS, mouse = game:GetService("TweenService"), game:GetService("UserInputService"), Player:GetMouse()
+local TS, UIS = game:GetService("TweenService"), game:GetService("UserInputService")
 
-local shit = {
-	togglebind = Enum.KeyCode.RightShift,
-	accent = Color3.fromRGB(106,90,205)
-	
-}
+function Library:Create(name, subname, keybind)
+    if game.CoreGui:FindFirstChild(name) then
+        game.CoreGui:FindFirstChild(name):Destroy()
+    end
 
+    -- Main GUI
+    local xz = Instance.new("ScreenGui")
+    xz.Name = name
+    xz.Parent = game.CoreGui
+    xz.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-function Library:Create(name,subname,keybind)
-	if game.CoreGui:FindFirstChild(name) then
-		game.CoreGui:FindFirstChild(name):Destroy()
-	end
-	local xz = Instance.new("ScreenGui")
-	local Main = Instance.new("Frame")
-	local Title = Instance.new("TextLabel")
-	local SubTitle = Instance.new("TextLabel")
-	local TabsHolder = Instance.new("Frame")
-	local UIListLayout = Instance.new("UIListLayout")
-	local PageHolder = Instance.new("Frame")
-	local UICorner = Instance.new("UICorner")
-	local UICorner_2 = Instance.new("UICorner")
-	xz.Name = name
-	xz.Parent = game.CoreGui
-	xz.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	Main.Name = "Main"
-	Main.Parent = xz
-	Main.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-	Main.BorderSizePixel = 0
-	Main.Position = UDim2.new(0, 192, 0, 224)
-	Main.Size = UDim2.new(0, 645, 0, 366)
-	Title.Name = "Title"
-	Title.Parent = Main
-	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Title.BackgroundTransparency = 1.000
-	Title.Position = UDim2.new(0.00930232555, 0, 0, 0)
-	Title.Size = UDim2.new(0, 179, 0, 34)
-	Title.Font = Enum.Font.GothamBold
-	Title.Text = name
-	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title.TextSize = 24.000
-	Title.TextXAlignment = Enum.TextXAlignment.Left
-	SubTitle.Name = "SubTitle"
-	SubTitle.Parent = Main
-	SubTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	SubTitle.BackgroundTransparency = 1.000
-	SubTitle.Position = UDim2.new(0.00930232555, 0, 0.0928961784, 0)
-	SubTitle.Size = UDim2.new(0, 179, 0, 18)
-	SubTitle.Font = Enum.Font.Gotham
-	SubTitle.Text = subname
-	SubTitle.TextColor3 = Color3.fromRGB(157, 157, 157)
-	SubTitle.TextSize = 12.000
-	SubTitle.TextXAlignment = Enum.TextXAlignment.Left
-	TabsHolder.Name = "TabsHolder"
-	TabsHolder.Parent = Main
-	TabsHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TabsHolder.BackgroundTransparency = 1.000
-	TabsHolder.BorderSizePixel = 0
-	TabsHolder.Position = UDim2.new(0.00930232555, 0, 0.158469945, 0)
-	TabsHolder.Size = UDim2.new(0, 179, 0, 302)
-	UIListLayout.Parent = TabsHolder
-	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout.Padding = UDim.new(0, 8)
-	PageHolder.Name = "PageHolder"
-	PageHolder.Parent = Main
-	PageHolder.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
-	PageHolder.BorderSizePixel = 0
-	PageHolder.Position = UDim2.new(0.297674417, 0, 0.0191256832, 0)
-	PageHolder.Size = UDim2.new(0, 447, 0, 353)
-	UICorner.CornerRadius = UDim.new(0, 4)
-	UICorner.Parent = PageHolder
-	UICorner_2.CornerRadius = UDim.new(0, 4)
-	UICorner_2.Parent = Main
-	
-	function dragify(Frame)
-		dragToggle = nil
-		local dragSpeed = 0
-		dragInput = nil
-		dragStart = nil
-		local dragPos = nil
-		function updateInput(input)
-			local Delta = input.Position - dragStart
-			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-			game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
-		end
-		Frame.InputBegan:Connect(function(input)
-			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
-				dragToggle = true
-				dragStart = input.Position
-				startPos = Frame.Position
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragToggle = false
-					end
-				end)
-			end
-		end)
-		Frame.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-				dragInput = input
-			end
-		end)
-		game:GetService("UserInputService").InputChanged:Connect(function(input)
-			if input == dragInput and dragToggle then
-				updateInput(input)
-			end
-		end)
-	end
-	
-	dragify(Main)
-	UIS.InputBegan:Connect(function(key,gp)
-		if not gp then
-			if key == Enum.KeyCode.RightShift then
-				Main.Visible = not Main.Visible
-			end
-		end
-	end)
-	
-	local Window = {}
-	
-	function Window:tab(tabname,showonstartup)
-		local Tab = Instance.new("TextButton")
-		local UICorner = Instance.new("UICorner")
-		Tab.Name = "Tab"
-		Tab.Parent = TabsHolder
-		Tab.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
-		Tab.BorderSizePixel = 0
-		Tab.Size = UDim2.new(0, 179, 0, 26)
-		Tab.Font = Enum.Font.Gotham
-		Tab.Text = tabname
-		Tab.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Tab.TextSize = 14.000
-		UICorner.CornerRadius = UDim.new(0, 4)
-		UICorner.Parent = Tab
-		
-		local Page = Instance.new("Frame")
-		local UICorner = Instance.new("UICorner")
-		local PageContainer = Instance.new("ScrollingFrame")
-		local UIListLayout = Instance.new("UIListLayout")
-		Page.Name = tabname
-		Page.Parent = PageHolder
-		Page.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
-		Page.BorderSizePixel = 0
-		Page.Size = UDim2.new(0, 447, 0, 353)
-		UICorner.CornerRadius = UDim.new(0, 4)
-		UICorner.Parent = Page
-		PageContainer.Name = "PageContainer"
-		PageContainer.Parent = Page
-		PageContainer.Active = true
-		PageContainer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		PageContainer.BackgroundTransparency = 1.000
-		PageContainer.BorderSizePixel = 0
-		PageContainer.Position = UDim2.new(0.0134228189, 0, 0.0198300276, 0)
-		PageContainer.Size = UDim2.new(0, 435, 0, 339)
-		PageContainer.ScrollBarThickness = 0
-		UIListLayout.Parent = PageContainer
-		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-		UIListLayout.Padding = UDim.new(0, 8)
-		
-		if showonstartup then
-			Page.Visible = true
-			Tab.TextTransparency = 0
-		else
-			Page.Visible = false
-			Tab.TextTransparency = 0.5
-		end
-		
-		Tab.MouseButton1Click:Connect(function()
-			for i,v in pairs(PageHolder:GetChildren()) do
-				if v:IsA("Frame") then
-					v.Visible = false
-				end
-			end
-			for x,z in pairs(TabsHolder:GetChildren()) do
-				if z:IsA("TextButton") then
-					z.TextTransparency = 0.5
-				end
-			end
-			Page.Visible = true
-			Tab.TextTransparency = 0
-		end)
-		
-		local pageitems = {}
-		
-		function pageitems:label(text)
-			local Label = Instance.new("Frame")
-			local UICorner = Instance.new("UICorner")
-			local LabelText = Instance.new("TextLabel")
-			Label.Name = text
-			Label.Parent = PageContainer
-			Label.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			Label.BorderSizePixel = 0
-			Label.Size = UDim2.new(0, 435, 0, 32)
-			UICorner.CornerRadius = UDim.new(0, 4)
-			UICorner.Parent = Label
-			LabelText.Name = "LabelText"
-			LabelText.Text = tostring(text)
-			LabelText.Parent = Label
-			LabelText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			LabelText.BackgroundTransparency = 1.000
-			LabelText.Position = UDim2.new(0.0137931034, 0, 0, 0)
-			LabelText.Size = UDim2.new(0, 423, 0, 32)
-			LabelText.Font = Enum.Font.Gotham
-			LabelText.TextColor3 = Color3.fromRGB(255, 255, 255)
-			LabelText.TextSize = 14.000
-			LabelText.TextXAlignment = Enum.TextXAlignment.Left
-		end
-		
-		function pageitems:button(text,callback)
-			local callback = callback or function() end
-			
-			local Button = Instance.new("Frame")
-			local UICorner = Instance.new("UICorner")
-			local Button_2 = Instance.new("TextButton")
-			Button.Name = text
-			Button.Parent = PageContainer
-			Button.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			Button.BorderSizePixel = 0
-			Button.Size = UDim2.new(0, 435, 0, 32)
-			UICorner.CornerRadius = UDim.new(0, 4)
-			UICorner.Parent = Button
-			Button_2.Name = "Button"
-			Button_2.Parent = Button
-			Button_2.Text = text
-			Button_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button_2.BackgroundTransparency = 1.000
-			Button_2.Position = UDim2.new(0.0140000004, 0, 0, 0)
-			Button_2.Size = UDim2.new(0, 423, 0, 32)
-			Button_2.Font = Enum.Font.Gotham
-			Button_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Button_2.TextSize = 14.000
-			Button_2.TextXAlignment = Enum.TextXAlignment.Left
-			
-			Button_2.MouseButton1Click:Connect(function()
-				pcall(callback)
-			end)
-		end
-		
-		function pageitems:toggle(text,state,callback)
-			local callback = callback or function() end
-			
-			local toggled = state
-			
-			local Toggle = Instance.new("Frame")
-			local UICorner = Instance.new("UICorner")
-			local Button = Instance.new("TextButton")
-			local Toggle_2 = Instance.new("ImageLabel")
-			local UICorner_2 = Instance.new("UICorner")
-			Toggle.Name = text
-			Toggle.Parent = PageContainer
-			Toggle.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			Toggle.BorderSizePixel = 0
-			Toggle.Size = UDim2.new(0, 435, 0, 32)
-			UICorner.CornerRadius = UDim.new(0, 4)
-			UICorner.Parent = Toggle
-			Button.Name = "Button"
-			Button.Parent = Toggle
-			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BackgroundTransparency = 1.000
-			Button.Position = UDim2.new(0.0140000004, 0, 0, 0)
-			Button.Size = UDim2.new(0, 423, 0, 32)
-			Button.Font = Enum.Font.Gotham
-			Button.Text = text
-			Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Button.TextSize = 14.000
-			Button.TextXAlignment = Enum.TextXAlignment.Left
-			Toggle_2.Name = "Toggle"
-			Toggle_2.Parent = Toggle
-			Toggle_2.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
-			Toggle_2.Position = UDim2.new(0.935000002, 0, 0.125, 0)
-			Toggle_2.Size = UDim2.new(0, 24, 0, 24)
-			Toggle_2.Image = "rbxassetid://10449228819"
-			Toggle_2.ImageTransparency = 1
+    local Main = Instance.new("Frame")
+    Main.Name = "Main"
+    Main.Parent = xz
+    Main.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Main.Size = UDim2.new(0.9, 0, 0.8, 0)
+    Main.Position = UDim2.new(0.05, 0, 0.1, 0)
+    Main.BorderSizePixel = 0
 
-			UICorner_2.CornerRadius = UDim.new(0, 4)
-			UICorner_2.Parent = Toggle_2
-			
-			if toggled == true then
-				Toggle_2.ImageTransparency = 0
-			elseif toggled == false then
-				Toggle_2.ImageTransparency = 1
-			end
-			
-			Button.MouseButton1Click:Connect(function()
-				toggled = not toggled
-				if toggled == true then
-					Toggle_2.ImageTransparency = 0
-				elseif toggled == false then
-					Toggle_2.ImageTransparency = 1
-				end
-				pcall(callback, toggled)
-			end)
-		end
-		
-		function pageitems:input(text,placeholder,clearonreturn,callback)
-			local callback = callback or function() end
-			
-			local Input = Instance.new("Frame")
-			local UICorner = Instance.new("UICorner")
-			local LabelText = Instance.new("TextLabel")
-			local Input_2 = Instance.new("TextBox")
-			local UICorner_2 = Instance.new("UICorner")
-			Input.Name = text
-			Input.Parent = PageContainer
-			Input.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			Input.BorderSizePixel = 0
-			Input.Size = UDim2.new(0, 435, 0, 32)
-			UICorner.CornerRadius = UDim.new(0, 4)
-			UICorner.Parent = Input
-			LabelText.Name = "LabelText"
-			LabelText.Parent = Input
-			LabelText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			LabelText.BackgroundTransparency = 1.000
-			LabelText.Position = UDim2.new(0.0137931034, 0, 0, 0)
-			LabelText.Size = UDim2.new(0, 290, 0, 32)
-			LabelText.Font = Enum.Font.Gotham
-			LabelText.Text = text
-			LabelText.TextColor3 = Color3.fromRGB(255, 255, 255)
-			LabelText.TextSize = 14.000
-			LabelText.TextXAlignment = Enum.TextXAlignment.Left
-			Input_2.Name = "Input"
-			Input_2.Parent = Input
-			Input_2.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
-			Input_2.Position = UDim2.new(0.680459797, 0, 0.125, 0)
-			Input_2.Size = UDim2.new(0, 134, 0, 24)
-			Input_2.Font = Enum.Font.Gotham
-			Input_2.Text = ""
-			Input_2.PlaceholderText = placeholder or ""
-			Input_2.ClearTextOnFocus = false
-			Input_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Input_2.TextSize = 14.000
-			UICorner_2.CornerRadius = UDim.new(0, 4)
-			UICorner_2.Parent = Input_2
-			Input_2.FocusLost:Connect(function()
-				pcall(callback, tostring(Input_2.Text))
-				if clearonreturn then
-					Input_2.Text = ""
-				end
-			end)
-			
-			
-		end
-		return pageitems
+    local UICornerMain = Instance.new("UICorner")
+    UICornerMain.CornerRadius = UDim.new(0, 4)
+    UICornerMain.Parent = Main
 
-	end
+    -- Title
+    local Title = Instance.new("TextLabel")
+    Title.Parent = Main
+    Title.BackgroundTransparency = 1
+    Title.Position = UDim2.new(0.01, 0, 0, 0)
+    Title.Size = UDim2.new(0.5, 0, 0, 34)
+    Title.Font = Enum.Font.GothamBold
+    Title.TextSize = 24
+    Title.TextXAlignment = Enum.TextXAlignment.Left
+    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Title.Text = name
 
-	return Window
+    -- Subtitle
+    local SubTitle = Instance.new("TextLabel")
+    SubTitle.Parent = Main
+    SubTitle.BackgroundTransparency = 1
+    SubTitle.Position = UDim2.new(0.01, 0, 0.1, 0)
+    SubTitle.Size = UDim2.new(0.5, 0, 0, 18)
+    SubTitle.Font = Enum.Font.Gotham
+    SubTitle.TextSize = 12
+    SubTitle.TextXAlignment = Enum.TextXAlignment.Left
+    SubTitle.TextColor3 = Color3.fromRGB(157, 157, 157)
+    SubTitle.Text = subname
 
+    -- Tabs Holder
+    local TabsHolder = Instance.new("Frame")
+    TabsHolder.Parent = Main
+    TabsHolder.BackgroundTransparency = 1
+    TabsHolder.Position = UDim2.new(0.01, 0, 0.16, 0)
+    TabsHolder.Size = UDim2.new(0.25, 0, 0.8, 0)
+
+    local UIListLayout = Instance.new("UIListLayout")
+    UIListLayout.Parent = TabsHolder
+    UIListLayout.Padding = UDim.new(0, 8)
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+    -- Page Holder
+    local PageHolder = Instance.new("Frame")
+    PageHolder.Parent = Main
+    PageHolder.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+    PageHolder.Position = UDim2.new(0.27, 0, 0.02, 0)
+    PageHolder.Size = UDim2.new(0.7, 0, 0.95, 0)
+    PageHolder.BorderSizePixel = 0
+
+    local UICornerPage = Instance.new("UICorner")
+    UICornerPage.CornerRadius = UDim.new(0, 4)
+    UICornerPage.Parent = PageHolder
+
+    -- Dragging support (PC + Mobile)
+    local function dragify(Frame)
+        local dragToggle, dragInput, dragStart, startPos
+        local function updateInput(input)
+            local Delta = input.Position - dragStart
+            local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X,
+                                       startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+            TS:Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+        end
+
+        Frame.InputBegan:Connect(function(input)
+            if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+                dragToggle = true
+                dragStart = input.Position
+                startPos = Frame.Position
+                input.Changed:Connect(function()
+                    if input.UserInputState == Enum.UserInputState.End then
+                        dragToggle = false
+                    end
+                end)
+            end
+        end)
+
+        Frame.InputChanged:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                dragInput = input
+            end
+        end)
+
+        UIS.InputChanged:Connect(function(input)
+            if input == dragInput and dragToggle then
+                updateInput(input)
+            end
+        end)
+    end
+    dragify(Main)
+
+    -- Toggle UI visibility with keybind (optional)
+    UIS.InputBegan:Connect(function(key, gp)
+        if not gp then
+            if key.KeyCode == Enum.KeyCode.RightShift then
+                Main.Visible = not Main.Visible
+            end
+        end
+    end)
+
+    -- Tab system
+    local Window = {}
+    function Window:tab(tabname, showonstartup)
+        local Tab = Instance.new("TextButton")
+        Tab.Name = tabname
+        Tab.Parent = TabsHolder
+        Tab.Size = UDim2.new(1, 0, 0, 26)
+        Tab.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+        Tab.Font = Enum.Font.Gotham
+        Tab.Text = tabname
+        Tab.TextSize = 14
+        Tab.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+        local UICornerTab = Instance.new("UICorner")
+        UICornerTab.CornerRadius = UDim.new(0, 4)
+        UICornerTab.Parent = Tab
+
+        local Page = Instance.new("Frame")
+        Page.Name = tabname
+        Page.Parent = PageHolder
+        Page.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+        Page.Size = UDim2.new(1, 0, 1, 0)
+        Page.Visible = showonstartup
+        Page.BorderSizePixel = 0
+
+        local PageContainer = Instance.new("ScrollingFrame")
+        PageContainer.Parent = Page
+        PageContainer.Active = true
+        PageContainer.BackgroundTransparency = 1
+        PageContainer.Size = UDim2.new(1, -10, 1, -10)
+        PageContainer.Position = UDim2.new(0, 5, 0, 5)
+        PageContainer.ScrollBarThickness = 5
+
+        local UIListLayoutPage = Instance.new("UIListLayout")
+        UIListLayoutPage.Parent = PageContainer
+        UIListLayoutPage.Padding = UDim.new(0, 8)
+        UIListLayoutPage.SortOrder = Enum.SortOrder.LayoutOrder
+
+        if not showonstartup then
+            Tab.TextTransparency = 0.5
+        end
+
+        Tab.MouseButton1Click:Connect(function()
+            for _, v in pairs(PageHolder:GetChildren()) do
+                if v:IsA("Frame") then
+                    v.Visible = false
+                end
+            end
+            for _, z in pairs(TabsHolder:GetChildren()) do
+                if z:IsA("TextButton") then
+                    z.TextTransparency = 0.5
+                end
+            end
+            Page.Visible = true
+            Tab.TextTransparency = 0
+        end)
+
+        local pageitems = {}
+
+        -- Label
+        function pageitems:label(text)
+            local Label = Instance.new("Frame")
+            Label.Parent = PageContainer
+            Label.Size = UDim2.new(1, 0, 0, 32)
+            Label.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+            local UICornerLabel = Instance.new("UICorner")
+            UICornerLabel.Parent = Label
+            UICornerLabel.CornerRadius = UDim.new(0, 4)
+
+            local LabelText = Instance.new("TextLabel")
+            LabelText.Parent = Label
+            LabelText.BackgroundTransparency = 1
+            LabelText.Size = UDim2.new(1, -10, 1, 0)
+            LabelText.Position = UDim2.new(0, 5, 0, 0)
+            LabelText.Font = Enum.Font.Gotham
+            LabelText.TextSize = 14
+            LabelText.TextColor3 = Color3.fromRGB(255, 255, 255)
+            LabelText.TextXAlignment = Enum.TextXAlignment.Left
+            LabelText.Text = text
+        end
+
+        -- Button
+        function pageitems:button(text, callback)
+            local callback = callback or function() end
+            local Button = Instance.new("Frame")
+            Button.Parent = PageContainer
+            Button.Size = UDim2.new(1, 0, 0, 32)
+            Button.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+            local UICornerButton = Instance.new("UICorner")
+            UICornerButton.Parent = Button
+            UICornerButton.CornerRadius = UDim.new(0, 4)
+
+            local BtnText = Instance.new("TextButton")
+            BtnText.Parent = Button
+            BtnText.Size = UDim2.new(1, -10, 1, 0)
+            BtnText.Position = UDim2.new(0, 5, 0, 0)
+            BtnText.BackgroundTransparency = 1
+            BtnText.Font = Enum.Font.Gotham
+            BtnText.TextSize = 14
+            BtnText.TextColor3 = Color3.fromRGB(255, 255, 255)
+            BtnText.TextXAlignment = Enum.TextXAlignment.Left
+            BtnText.Text = text
+
+            BtnText.InputBegan:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                    pcall(callback)
+                end
+            end)
+        end
+
+        -- Toggle
+        function pageitems:toggle(text, state, callback)
+            local callback = callback or function() end
+            local toggled = state
+
+            local Toggle = Instance.new("Frame")
+            Toggle.Parent = PageContainer
+            Toggle.Size = UDim2.new(1, 0, 0, 32)
+            Toggle.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+            local UICornerToggle = Instance.new("UICorner")
+            UICornerToggle.Parent = Toggle
+            UICornerToggle.CornerRadius = UDim.new(0, 4)
+
+            local BtnText = Instance.new("TextButton")
+            BtnText.Parent = Toggle
+            BtnText.Size = UDim2.new(1, -40, 1, 0)
+            BtnText.Position = UDim2.new(0, 5, 0, 0)
+            BtnText.BackgroundTransparency = 1
+            BtnText.Font = Enum.Font.Gotham
+            BtnText.TextSize = 14
+            BtnText.TextColor3 = Color3.fromRGB(255, 255, 255)
+            BtnText.TextXAlignment = Enum.TextXAlignment.Left
+            BtnText.Text = text
+
+            local ToggleImg = Instance.new("Frame")
+            ToggleImg.Parent = Toggle
+            ToggleImg.Size = UDim2.new(0, 24, 0, 24)
+            ToggleImg.Position = UDim2.new(1, -30, 0, 4)
+            ToggleImg.BackgroundColor3 = toggled and Color3.fromRGB(106,90,205) or Color3.fromRGB(50,50,50)
+            local UICornerImg = Instance.new("UICorner")
+            UICornerImg.Parent = ToggleImg
+            UICornerImg.CornerRadius = UDim.new(0, 4)
+
+            BtnText.InputBegan:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                    toggled = not toggled
+                    ToggleImg.BackgroundColor3 = toggled and Color3.fromRGB(106,90,205) or Color3.fromRGB(50,50,50)
+                    pcall(callback, toggled)
+                end
+            end)
+        end
+
+        -- Input Box
+        function pageitems:input(text, placeholder, clearonreturn, callback)
+            local callback = callback or function() end
+
+            local Input = Instance.new("Frame")
+            Input.Parent = PageContainer
+            Input.Size = UDim2.new(1, 0, 0, 32)
+            Input.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+            local UICornerInput = Instance.new("UICorner")
+            UICornerInput.Parent = Input
+            UICornerInput.CornerRadius = UDim.new(0, 4)
+
+            local LabelText = Instance.new("TextLabel")
+            LabelText.Parent = Input
+            LabelText.BackgroundTransparency = 1
+            LabelText.Position = UDim2.new(0, 5, 0, 0)
+            LabelText.Size = UDim2.new(0.65, 0, 1, 0)
+            LabelText.Font = Enum.Font.Gotham
+            LabelText.TextSize = 14
+            LabelText.TextColor3 = Color3.fromRGB(255, 255, 255)
+            LabelText.TextXAlignment = Enum.TextXAlignment.Left
+            LabelText.Text = text
+
+            local TextBox = Instance.new("TextBox")
+            TextBox.Parent = Input
+            TextBox.Size = UDim2.new(0.3, 0, 1, 0)
+            TextBox.Position = UDim2.new(0.68, 0, 0, 0)
+            TextBox.Text = ""
+            TextBox.PlaceholderText = placeholder or ""
+            TextBox.ClearTextOnFocus = false
+            TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextBox.Font = Enum.Font.Gotham
+            TextBox.TextSize = 14
+
+            TextBox.FocusLost:Connect(function()
+                pcall(callback, TextBox.Text)
+                if clearonreturn then
+                    TextBox.Text = ""
+                end
+            end)
+        end
+
+        return pageitems
+    end
+
+    return Window
 end
 
 return Library
