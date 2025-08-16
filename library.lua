@@ -80,7 +80,7 @@ end
 
 local library = {
     version = "2.0.2",
-    title = title or "xsx " .. tostring(math.random(1,366)),
+    title = title or "allostra " .. tostring(math.random(1,366)),
     fps = 0,
     rank = "private"
 }
@@ -202,7 +202,7 @@ function library:Watermark(text)
         end
     end
 
-    tetx = text or "xsx v2"
+    tetx = text or "ALLOSTRA V2"
 
     local watermark = Instance.new("ScreenGui")
     local watermarkPadding = Instance.new("UIPadding")
@@ -326,7 +326,7 @@ function library:Watermark(text)
 
     local WatermarkFunctions = {}
     function WatermarkFunctions:AddWatermark(text)
-        tetx = text or "xsx v2"
+        tetx = text or "ALLOSTRA V2"
 
         local edge = Instance.new("Frame")
         local edgeCorner = Instance.new("UICorner")
@@ -774,7 +774,7 @@ function library:Introduction()
     hashLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     hashLogo.ImageTransparency = 1
     
-    xsx.Name = "xsx"
+    xsx.Name = "ALLOSTRA"
     xsx.Parent = background
     xsx.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     xsx.BackgroundTransparency = 1.000
@@ -792,7 +792,7 @@ function library:Introduction()
     text.Position = UDim2.new(0.912751675, 0, 0, 0)
     text.Size = UDim2.new(0, 26, 0, 21)
     text.Font = Enum.Font.Code
-    text.Text = "hash"
+    text.Text = "off_arj"
     text.TextColor3 = Color3.fromRGB(124, 124, 124)
     text.TextSize = 10.000
     text.TextTransparency = 1
@@ -3576,3 +3576,4 @@ function library:Init(key)
     return TabLibrary
 end
 return library
+
