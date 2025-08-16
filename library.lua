@@ -1,26 +1,20 @@
-local inputService = game:GetService('UserInputService')
-local renderService = game:GetService('RunService')
-local tweenService = game:GetService('TweenService')
-local guiService = game:GetService('GuiService')
+local inputService = game:GetService("UserInputService")
+local renderService = game:GetService("RunService")
+local tweenService = game:GetService("TweenService")
+local guiService = game:GetService("GuiService")
 
--- tween(object, {Property = 'value'}, 0.2, 1)
-local tween
-do
+local function tweenObject(object, properties, duration, styleIndex)
     local styleEnum = Enum.EasingStyle
     local dirEnum = Enum.EasingDirection
-    
+
     local direction = dirEnum.Out
     local styles = {styleEnum.Exponential, styleEnum.Linear}
-    
-    
-    function tween(object, shit, duration, style) 
-        local tweenInfo = TweenInfo.new(duration, styles[style], direction)
-        local tween = tweenService:Create(object, tweenInfo, shit)
-        tween:Play()
-        return tween 
-    end
-end
 
+    local tweenInfo = TweenInfo.new(duration, styles[styleIndex], direction)
+    local tween = tweenService:Create(object, tweenInfo, properties)
+    tween:Play()
+    return tween
+end
 -- ui config shit
 local args = {...}
 local theme
@@ -7837,6 +7831,7 @@ do
         end)
     end
 end
+
 
 
 return ui 
