@@ -1,11 +1,3 @@
--- DOLLARWARE UI LIBRARY
--- MADE BY TOPIT
-
--- warning: comments are mostly retarded / useless
--- some shit makes no sense but idc enough to fix it
-
--- started on 5/18/22
-
 local inputService = game:GetService('UserInputService')
 local renderService = game:GetService('RunService')
 local tweenService = game:GetService('TweenService')
@@ -21,12 +13,13 @@ do
     local styles = {styleEnum.Exponential, styleEnum.Linear}
     
     
-    function tween(object, shit, duration, style) 
-        local tweenInfo = TweenInfo.new(duration, styles[style], direction)
-        local tween = tweenService:Create(object, tweenInfo, shit)
-        tween:Play()
-        return tween 
-    end
+    function tween(object, properties, duration, style) 
+    style = style or 1 -- default to Exponential
+    local easingStyle = styles[style] or Enum.EasingStyle.Linear
+    local tweenInfo = TweenInfo.new(duration, easingStyle, direction)
+    local t = tweenService:Create(object, tweenInfo, properties)
+    t:Play()
+    return t
 end
 
 -- ui config shit
