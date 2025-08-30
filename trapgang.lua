@@ -294,7 +294,7 @@ do
 
 		local toggleButton = Instance.new("TextButton")
 toggleButton.Name = "ToggleButton"
-toggleButton.Text = "Show Library"
+toggleButton.Text = "SHOW TRAPGANG"
 toggleButton.BackgroundTransparency = 0.3
 toggleButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -321,9 +321,9 @@ local function toggleUI()
     container.Main.Visible = uiVisible
 
     if uiVisible then
-        toggleButton.Text = "Hide Library"
+        toggleButton.Text = "HIDE TRAPGANG"
     else
-        toggleButton.Text = "Show Library"
+        toggleButton.Text = "SHOW TRAPGANG"
     end
 end
 
